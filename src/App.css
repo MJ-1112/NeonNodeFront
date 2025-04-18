@@ -193,3 +193,128 @@ button:hover {
   animation: slideIn 0.3s ease;
   box-shadow: 0 0 10px rgba(77,201,255,0.8);
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.fade-in-delay-1 {
+  animation: fadeIn 1s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 1s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.fade-in-delay-3 {
+  animation: fadeIn 1s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink .75s step-end infinite;
+}
+
+.game-card-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.game-card-animate:nth-child(1) { animation-delay: 0.2s; }
+.game-card-animate:nth-child(2) { animation-delay: 0.4s; }
+.game-card-animate:nth-child(3) { animation-delay: 0.6s; }
+.game-card-animate:nth-child(4) { animation-delay: 0.8s; }
+
+/* Game Animation Styles */
+.game-controller {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234dc9ff'%3E%3Cpath d='M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 10px rgba(77,201,255,0.8));
+  transition: transform 0.1s ease-out;
+}
+
+.game-icons-container {
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  width: 0;
+  height: 0;
+}
+
+.game-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgba(77,201,255,0.2);
+  border: 2px solid #4dc9ff;
+  border-radius: 50%;
+  transition: opacity 0.3s ease-out, transform 0.5s ease-out;
+  box-shadow: 
+    0 0 10px rgba(77,201,255,0.5),
+    0 0 20px rgba(77,201,255,0.3),
+    inset 0 0 15px rgba(77,201,255,0.3);
+}
+
+.game-icon::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #4dc9ff 0%, transparent 70%);
+  opacity: 0.6;
+}
+
+.game-icon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(77,201,255,0.4) 0%, transparent 70%);
+  filter: blur(4px);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.game-icon {
+  animation: pulse 2s ease-in-out infinite;
+}
