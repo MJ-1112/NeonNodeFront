@@ -3,6 +3,12 @@ import './App.css';
 import { usePrivy } from '@privy-io/react-auth';
 import { motion } from 'framer-motion';
 
+// Import game images
+import NinjaImage from './assets/Ninja.png';
+import AIImage from './assets/AI (1).png';
+import FlappyImage from './assets/Flappy.png';
+import TRexImage from './assets/t-rex.png';
+
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,6 +61,33 @@ function App() {
     "Our journey began with a shared love for gaming, tech, and innovation—and it led us to create a fully Web3-integrated blockchain gaming platform. Built on the Monad Testnet, our project explores the future of decentralized gaming where players truly own their assets and experiences.",
     "Whether it's NFTs, Play-to-Earn mechanics, or smart contracts, we're all about pushing boundaries and experimenting with what's next in the gaming world. Our site isn't just a project—it's a glimpse into the future of gaming, designed and developed entirely by students who believe in the power of Web3.",
     "Thanks for checking us out. Join us on this journey as we continue building, learning, and leveling up. 🎮🌐"
+  ];
+
+  const games = [
+    {
+      id: 1,
+      title: "Ninja Adventure",
+      description: "Master the art of stealth in this action-packed ninja game",
+      image: NinjaImage
+    },
+    {
+      id: 2,
+      title: "AI Challenge",
+      description: "Test your skills against advanced AI opponents",
+      image: AIImage
+    },
+    {
+      id: 3,
+      title: "Flappy Bird",
+      description: "Classic flappy bird game with a modern twist",
+      image: FlappyImage
+    },
+    {
+      id: 4,
+      title: "Dino Runner",
+      description: "Run, jump and survive in this prehistoric adventure",
+      image: TRexImage
+    }
   ];
 
   useEffect(() => {
@@ -169,20 +202,20 @@ function App() {
               className="text-4xl font-bold text-center mb-16 text-green-400"
             >Our Games</motion.h2>
             <div className="grid grid-cols-2 gap-8">
-              {[1, 2, 3, 4].map((game) => (
+              {games.map((game) => (
                 <div
-                  key={game}
+                  key={game.id}
                   className="bg-black/40 p-6 rounded-xl border-2 border-green-400 shadow-[0_0_15px_rgba(74,222,128,0.5)] hover:shadow-[0_0_30px_rgba(74,222,128,0.8)] group"
                 >
                   <div className="aspect-video mb-4 overflow-hidden rounded-lg bg-black/50">
                     <img 
-                      src={`/game${game}.jpg`} 
-                      alt={`Game ${game}`} 
+                      src={game.image} 
+                      alt={game.title}
                       className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-green-400 text-center mb-2">Game Title {game}</h3>
-                  <p className="text-gray-300 text-center">Experience the thrill of adventure</p>
+                  <h3 className="text-2xl font-bold text-green-400 text-center mb-2">{game.title}</h3>
+                  <p className="text-gray-300 text-center">{game.description}</p>
                 </div>
               ))}
             </div>
