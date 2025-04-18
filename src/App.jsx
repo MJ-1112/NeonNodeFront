@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { usePrivy } from '@privy-io/react-auth';
-import GameAnimation from './components/GameAnimation';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -92,8 +91,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        <GameAnimation />
 
         <section id="games" className="min-h-screen flex items-center justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
