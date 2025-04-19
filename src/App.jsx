@@ -205,17 +205,19 @@ function App() {
               {games.map((game) => (
                 <div
                   key={game.id}
-                  className="bg-black/40 p-6 rounded-xl border-2 border-green-400 shadow-[0_0_15px_rgba(74,222,128,0.5)] hover:shadow-[0_0_30px_rgba(74,222,128,0.8)] group"
+                  className="bg-black/40 p-6 rounded-xl border-2 border-green-400 shadow-[0_0_15px_rgba(74,222,128,0.5)] hover:shadow-[0_0_30px_rgba(74,222,128,0.8)] group w-[500px] h-[400px] flex flex-col"
                 >
-                  <div className="aspect-video mb-4 overflow-hidden rounded-lg bg-black/50">
+                  <div className="w-full h-[250px] mb-4 overflow-hidden rounded-lg bg-black/50 flex-shrink-0">
                     <img 
                       src={game.image} 
                       alt={game.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
+                      className="w-full h-full object-contain opacity-80 group-hover:opacity-100"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-green-400 text-center mb-2">{game.title}</h3>
-                  <p className="text-gray-300 text-center">{game.description}</p>
+                  <div className="flex-grow flex flex-col justify-center">
+                    <h3 className="text-2xl font-bold text-green-400 text-center mb-2">{game.title}</h3>
+                    <p className="text-gray-300 text-center">{game.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
